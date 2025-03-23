@@ -32,7 +32,7 @@ def get_cm_per_pixel(image_path: str) -> float:
     ul_image = image[0 : (height // 2), 0 : (width // 2)]
 
     # Detect reference object width and height
-    results = ref_model.predict(ul_image, size=896)
+    results = ref_model.predict(ul_image, imgsz=896)
 
     for result in results:
         for box in result.boxes:

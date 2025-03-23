@@ -20,7 +20,7 @@ def get_garment_measurements(image_path: str, cm_per_pixel: float) -> dict:
     image = cv2.imread(image_path)
     image = cv2.resize(image, (896, 896))
 
-    results = garment_model.predict(image, size=896)
+    results = garment_model.predict(image, imgsz=896)
 
     # Verifying one border box for garment and verifying the keypoints detection
     garment_kpts = None
