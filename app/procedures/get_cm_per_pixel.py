@@ -1,5 +1,4 @@
 import cv2
-from numpy import imag
 from ultralytics import YOLO
 
 from app.util.config import (
