@@ -1,14 +1,15 @@
 import cv2
+from numpy import imag
 from ultralytics import YOLO
 
 from app.util.config import (
-    CARD_DETECTOR_MODEL,
+    REF_OBJ_DETECTOR_MODEL,
     REF_OBJ_HEIGHT_CM,
     REF_OBJ_TYPE,
     REF_OBJ_WIDHT_CM,
 )
 
-ref_model = YOLO(CARD_DETECTOR_MODEL)
+ref_model = YOLO(REF_OBJ_DETECTOR_MODEL)
 
 
 def get_cm_per_pixel(image_path: str) -> float:
@@ -27,11 +28,12 @@ def get_cm_per_pixel(image_path: str) -> float:
 
     # Load image and crop the upper left part of the image
     image = cv2.imread(image_path)
+    image = cv2.resize(image, (896, 896))
     height, width = image.shape[:2]
     ul_image = image[0 : (height // 2), 0 : (width // 2)]
 
     # Detect reference object width and height
-    results = ref_model.predict(ul_image, imgsz=640, conf=0.5)
+    results = ref_model.predict(ul_image, size=896)
 
     for result in results:
         for box in result.boxes:

@@ -6,8 +6,8 @@ REF_OBJ_WIDHT_CM = 8.6
 REF_OBJ_HEIGHT_CM = 5.4
 
 # AI Models paths
-CARD_DETECTOR_MODEL = "models/CardDetectorV1.pt"
-GARMENT_DETECTOR_MODEL = "models/yolo8m-350DS-excellent.pt"
+REF_OBJ_DETECTOR_MODEL = "models/ref-object-model-v2.pt"
+GARMENT_DETECTOR_MODEL = "models/garment-model-350DS-excellent.pt"
 
 
 # keypoint configuration

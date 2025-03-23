@@ -1,14 +1,15 @@
 import cv2
 from ultralytics import YOLO
 
-card_detector_model = YOLO("models\CardDetectorV1.pt")
+card_detector_model = YOLO("models/ref-object-model-v2.pt")
 
-image = cv2.imread("./test/test_images/product-test-img-2.jpg")
+image = cv2.imread("test/test_images/product-test-img-2.jpg")
+image = cv2.resize(image, (896, 896))
 print(f"image shape: {image.shape}")
 height, width = image.shape[:2]
 ul_image = image[0 : (height // 2), 0 : (width // 2)]
 
-results = card_detector_model.predict(ul_image, conf=0.5, imgsz=640)
+results = card_detector_model.predict(ul_image, imgsz=896)
 
 print()
 print("------------------------------")
