@@ -3,7 +3,7 @@ import cv2
 
 garment_detector_model = YOLO("models/garment-model-350DS-excellent.pt")
 
-image = cv2.imread("./test/test_images/product-test-img-2.jpg")
+image = cv2.imread("./test/test_images/oversized-mint-green-tee-L.jpg")
 image = cv2.resize(image, (896, 896))
 
 results = garment_detector_model.predict(image, imgsz=896)

@@ -3,7 +3,7 @@ from ultralytics import YOLO
 
 card_detector_model = YOLO("models/ref-object-model-v2.pt")
 
-image = cv2.imread("test/test_images/product-test-img-2.jpg")
+image = cv2.imread("test/test_images/oversized-mint-green-tee-M.jpg")
 image = cv2.resize(image, (896, 896))
 print(f"image shape: {image.shape}")
 height, width = image.shape[:2]
